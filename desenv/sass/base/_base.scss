@@ -1,0 +1,19 @@
+// Cores
+$principal: #c0392b;
+$contraste: #e8e8e8;
+$texto: #313131;
+$branco: #ffffff;
+
+// Fonte
+$fonte-principal: 'Courier New', Courier, monospace;
+$fonte-secundaria: Helvetica, Arial, sans-serif;
+
+// Mixin
+@mixin flex($dir, $align, $justify) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: $dir;
+  align-items: $align;
+  justify-content: $justify;
+}
+

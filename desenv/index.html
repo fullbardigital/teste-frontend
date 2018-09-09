@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <!-- Config -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Márcio Scavassa">
+  <meta name="description" content="Pokédex API">
+  <!-- Robôs -->
+  <meta name="revisit-after" content="2 days" />
+  <meta name="robots" content="index, follow" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#e42d31">
+  <!-- Windows Phone -->
+  <meta name="msapplication-TileColor" content="#e42d31">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#e42d31">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#e42d31">
+  <!-- Share -->
+  <meta property="og:title" content="" />
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:secure_url" content="">
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <title>PokéAPI</title>
+</head>
+
+<body>
+  <header class="topPage">
+    <div class="logoPage">
+      <img src="img/pokeball.svg" alt="Pokeball">
+    </div>
+    <div class="textPage">
+      <h1 class="titlePage"><span>Poke</span>API</h1>
+      <h2 class="linkAPI"><a href="https://pokeapi.co/" target="_blank" rel=”noopener noreferer”>pokeapi.co</a></h2>
+    </div>
+    <div class='icon-scroll'>
+    </div>
+  </header>
+  <main class="pokedex">
+    <div class="poke-modal">
+      <div class="modal-bg"></div>
+      <article class="modal">
+        <div class="btn-fechar"></div>
+        <div class="pokemon-image">
+          <img class="modal-data" src="" alt="" data-src="detalhePokemonModal">
+        </div>
+        <div>
+          <div class="pokemon-name">
+            <h3><span class="modal-data" data-number="detalhePokemonModal"></span></h3>
+            <h2><span class="modal-data" data-name="detalhePokemonModal"></span></h2>
+          </div>
+          <div class="pokemon-type">
+            <h4 class="modal-data" data-type01=""></h4>
+            <h4 class="modal-data" data-type02=""></h4>
+          </div>
+        </div>
+        <div class="pokemon-infos">
+          <div>
+            <h3>Height</h3>
+            <p class="modal-data" data-height="detalhePokemonModal"></p>
+          </div>
+          <div>
+            <h3>Weight</h3>
+            <p class="modal-data" data-weight="detalhePokemonModal"></p>
+          </div>
+          <div>
+            <h3>Exp</h3>
+            <p class="modal-data" data-exp="detalhePokemonModal"></p>
+          </div>
+        </div>
+        <div class="pokemon-status">
+          <div>
+            <h4>HP</h4>
+            <p class="modal-data" data-hp="detalhePokemonModal"></p>
+          </div>
+          <div>
+            <h4>Attack</h4>
+            <p class="modal-data" data-atk="detalhePokemonModal"></p>
+          </div>
+          <div>
+            <h4>Defense</h4>
+            <p class="modal-data" data-def="detalhePokemonModal"></p>
+          </div>
+          <div>
+            <h4>SP. ATK</h4>
+            <p class="modal-data" data-spatk="detalhePokemonModal"></p>
+          </div>
+          <div>
+            <h4>SP. DEF</h4>
+            <p class="modal-data" data-spdef="detalhePokemonModal"></p>
+          </div>
+          <div>
+            <h4>Speed</h4>
+            <p class="modal-data" data-speed="detalhePokemonModal"></p>
+          </div>
+        </div>
+      </article>
+    </div>
+    <section class="list">
+      <!-- <div class="pokemon">
+        <div class="pokemon-name">
+          <h3><span data-number="230">230</span></h3>
+          <h2><span data-name="bulbasaur">bulbasaur</span></h2>
+        </div>
+        <div class="pokemon-image">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/230.png" alt="bulbasaur"
+            data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/230.png">
+        </div>
+        <div class="pokemon-type">
+          <h4 data-type01="poison">poison</h4>
+          <h4 data-type02="grass">bug</h4>
+        </div>
+      </div> -->
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>

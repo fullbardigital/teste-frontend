@@ -1,0 +1,423 @@
+// Reset CSS
+@import 'base/_reset';
+// Configurações como Cores, Fontes e Estrutura
+@import 'base/_base';
+
+html,
+body {
+  height: 100%;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background: darken($branco, 3%);
+  }
+  &::-webkit-scrollbar-track {
+    background-color: darken($branco, 3%);
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 20px;
+    border-radius: 5px;
+    background: $principal;
+  }
+}
+.no-scroll {
+  overflow: hidden;
+}
+// ############################################################################################# Loader
+.loader-text {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+  color: $branco;
+  text-align: center;
+  font-size: 16px;
+  font-family: $fonte-principal;
+}
+.loader {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  width: 64px;
+}
+.loader div {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loader div:nth-child(1) {
+  left: 6px;
+  animation: loader-animation1 0.6s infinite;
+}
+.loader div:nth-child(2) {
+  left: 6px;
+  animation: loader-animation2 0.6s infinite;
+}
+.loader div:nth-child(3) {
+  left: 26px;
+  animation: loader-animation2 0.6s infinite;
+}
+.loader div:nth-child(4) {
+  left: 45px;
+  animation: loader-animation3 0.6s infinite;
+}
+@keyframes loader-animation1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes loader-animation3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes loader-animation2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(19px, 0);
+  }
+}
+// ############################################################################################# Topo
+.topPage {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: 480px;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/pokebg.jpg');
+  background-position: top;
+
+  @include flex(column, center, center);
+  &:before,
+  &:after {
+    position: absolute;
+    display: block;
+    visibility: hidden;
+    width: 267px;
+    height: 400px;
+    content: '';
+    opacity: 0;
+    transition: 1.5s;
+  }
+  &:before {
+    left: 50%;
+    background-image: url('../img/poke-girl.png');
+    transform: translateX(-320px);
+  }
+  &:after {
+    right: 50%;
+    background-image: url('../img/poke-boy.png');
+    transform: translateX(350px);
+  }
+  &.active:before,
+  &.active:after {
+    visibility: visible;
+    opacity: 1;
+  }
+  &.active:before {
+    left: 50%;
+    background-image: url('../img/poke-girl.png');
+    transform: translateX(-400px);
+  }
+  &.active:after {
+    right: 50%;
+    background-image: url('../img/poke-boy.png');
+    transform: translateX(420px);
+  }
+}
+.logoPage {
+  position: relative;
+  top: -50px;
+  width: 100px;
+  img {
+    width: 100%;
+  }
+}
+.titlePage {
+  position: relative;
+  top: -50px;
+  margin: 5px 0 0 0;
+  color: $texto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 70px;
+  font-family: $fonte-principal;
+  span {
+    color: $principal;
+  }
+}
+.linkAPI {
+  position: relative;
+  top: -50px;
+  color: $texto;
+  text-align: center;
+  font-size: 24px;
+  font-family: $fonte-principal;
+  a {
+    color: initial;
+    text-decoration: none;
+  }
+}
+.icon-scroll,
+.icon-scroll:before {
+  position: absolute;
+  left: 50%;
+}
+.icon-scroll {
+  top: 90%;
+  margin-top: -100px;
+  margin-left: -20px;
+  width: 40px;
+  height: 70px;
+  border-radius: 25px;
+  box-shadow: inset 0 0 0 3px $principal;
+}
+.icon-scroll:before {
+  top: 8px;
+  margin-left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: $principal;
+  content: '';
+  animation-name: scroll;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(46px);
+  }
+}
+// ############################################################################################# Poke Modal
+.poke-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.3s;
+
+  @include flex(column, center, center);
+}
+.poke-modal.open {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.3s;
+}
+.modal-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(192, 57, 43, 0.9);
+}
+.modal {
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+  padding: 35px 20px;
+  min-height: 200px;
+  max-width: 300px;
+  width: 100%;
+  border-radius: 15px;
+  background: $branco;
+
+  @include flex(row, flex-start, center);
+  .pokemon-image {
+    flex-grow: 0;
+    margin: 0 20px 0 0;
+    width: 96px;
+    height: 120px;
+  }
+  .pokemon-name {
+    text-align: left;
+  }
+  .pokemon-type {
+    margin-top: 10px;
+
+    @include flex(column, flex-start, flex-start);
+  }
+  [data-type01],
+  [data-type02] {
+    margin: 2.5px 0;
+  }
+  .pokemon-infos {
+    margin-top: 20px;
+    padding: 15px 5px;
+    width: 100%;
+    border-top: 1px solid lighten($texto, 70px);
+
+    @include flex(row, flex-start, flex-start);
+    > div {
+      flex-grow: 1;
+      color: $texto;
+      text-align: center;
+      font-weight: bold;
+      font-family: $fonte-principal;
+      h3 {
+        font-size: 12px;
+      }
+      p {
+        font-size: 25px;
+      }
+    }
+  }
+  .pokemon-status {
+    box-sizing: border-box;
+    padding: 15px 5px 0 5px;
+    width: 100%;
+    border-top: 1px solid lighten($texto, 70px);
+
+    @include flex(column, center, center);
+    > div {
+      box-sizing: border-box;
+      margin: 1px 0;
+      padding: 6px 15px;
+      width: 100%;
+      background: $contraste;
+      color: $texto;
+      font-weight: bold;
+      font-family: $fonte-principal;
+
+      @include flex(row, flex-start, space-between);
+      h4 {
+        text-transform: uppercase;
+      }
+    }
+    > div:nth-child(even) {
+      background: lighten($contraste, 4%);
+    }
+  }
+}
+.btn-fechar {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: lighten($principal, 10%);
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background: $principal;
+  }
+  &:before,
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 19px;
+    height: 4px;
+    border-radius: 5px;
+    background: $branco;
+    content: '';
+  }
+  &:before {
+    transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+  }
+  &:after {
+    transform: translate3d(-50%, -50%, 0) rotate(45deg);
+  }
+}
+
+// ############################################################################################# Pokedex
+.pokedex {
+  box-sizing: border-box;
+  padding: 50px 20px;
+  width: 100%;
+  background-image: linear-gradient(
+    to top,
+    darken($principal, 15%),
+    $principal
+  );
+}
+.list {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1600px;
+  width: 100%;
+
+  @include flex(row, flex-start, flex-start);
+}
+// ############################################################################################# Pokedex Card
+.pokemon {
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 15px 10px;
+  width: calc(16.66% - 10px);
+  border-radius: 10px;
+  background: $branco;
+  cursor: pointer;
+
+  @include flex(column, center, space-between);
+}
+.pokemon-name {
+  width: 100%;
+  color: lighten($texto, 15%);
+  text-align: center;
+  font-weight: bold;
+  font-family: $fonte-principal;
+  h3 {
+    margin-bottom: 5px;
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+}
+.pokemon-image {
+  overflow: hidden;
+  flex-grow: 1;
+  margin: 10px 0;
+  width: 100%;
+  height: 96px;
+  background: $contraste;
+
+  @include flex(row, center, center);
+}
+.lazy-img {
+  max-width: 100%;
+  height: 96px;
+}
+.pokemon-type {
+  width: 100%;
+
+  @include flex(row, center, center);
+}
+[data-type01],
+[data-type02] {
+  margin: 2.5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: $branco;
+  font-size: 13px;
+  font-family: $fonte-principal;
+}
+// CSS de cada tipo dos pokemons no arquivo abaixo
+@import 'layout/_types';
+
+// Medias Queries
+@import 'media-queries/_mq';

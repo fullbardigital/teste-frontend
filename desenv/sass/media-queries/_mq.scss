@@ -1,0 +1,31 @@
+@media(max-width: 1300px){
+  .pokemon {
+    width: calc(33.3% - 10px);
+  }
+}
+@media(max-width: 950px){
+  .pokemon {
+    width: calc(33.33% - 10px);
+  }
+}
+@media(max-width: 800px){
+  .topPage:before,
+  .topPage:after {
+      display: none;
+  }
+}
+@media(max-width: 700px){
+  .pokemon {
+    width: calc(50% - 10px);
+  }
+}
+@media(max-width: 400px){
+  .pokemon {
+    width: calc(100% - 10px);
+  }
+}
+@media(max-width: 350px){
+  .titlePage {
+    font-size: 20vw;
+  }
+}
